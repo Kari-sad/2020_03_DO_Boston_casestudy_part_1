@@ -2,6 +2,17 @@
 - hosts: kubernetes
   user: ansadmin
   tasks:
+# Pre-Tasks to validate if Minikube is running
+  - name: Check Minikube's status.
+      shell: minikube status
+      register: minikube_status
+      changed_when: false
+      ignore_errors: true
+    # Otherwise will start minikube
+  - name: Start Minikube if it's not running.
+      shell: minikube start
+      when: "not minikube_status.stdout or 'Running' not in minikube_status.stdout"
+
   - name: Deploy the service
     k8s:
       state: present
