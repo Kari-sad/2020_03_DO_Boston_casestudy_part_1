@@ -24,8 +24,8 @@ pipeline {
 			stage('Building new image ') {
 				steps {
 					script {
-						sh 'sudo docker image build -t $DOCKER_HUB_REPO:latest .'
-						sh 'sudo docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
+						sh 'docker image build -t $DOCKER_HUB_REPO:latest .'
+						sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
 						echo "image buit successfuly"
 					}
 				}	
