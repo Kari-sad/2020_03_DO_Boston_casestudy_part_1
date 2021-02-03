@@ -1,0 +1,27 @@
+---
+- hosts: kubernetes
+  user: ansadmin
+  tasks:
+# Pre-Tasks to validate if Minikube is running
+  - name: Check Minikube's status.
+     ommand: minikube status
+      register: minikube_status
+      changed_when: false
+      ignore_errors: true
+    # Otherwise will start minikube
+  - name: Start Minikube if it's not running.
+      command: minikube start
+      when: "not minikube_status.stdout or 'Running' not in minikube_status.stdout"
+
+  - name: Deploy the service
+    k8s:
+      state: present
+      definition: "{{ lookup('template', 'service.yml') | from_yaml }}"
+      validate_certs: no
+      namespace: default
+  - name: Deploy the application
+    k8s:
+      state: present
+      validate_certs: no
+      namespace: default
+      definition: "{{ lookup('template', 'deployment.yml') | from_yaml }}"
