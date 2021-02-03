@@ -9,7 +9,9 @@ pipeline {
 		stages {
 			stage('Cloning our Git'){
 				steps {
-					git 'https://github.com/Kari-sad/2020_03_DO_Boston_casestudy_part_1.git'                
+					script{
+						sh 'git clone https://github.com/Kari-sad/2020_03_DO_Boston_casestudy_part_1.git' 
+					}		
 				}
 			}
 			stage('Building new image ') {
