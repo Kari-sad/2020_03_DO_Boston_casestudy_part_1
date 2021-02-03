@@ -43,9 +43,7 @@ pipeline {
 			}
 			stage('Deploy to kubernetes'){
 				steps{
-					script{
-						sh "ansible-playbook  playbook.yaml"
-					}
+					ansiblePlaybook credentialsId: 'kubernetes', disableHostKeyChecking: true, installation: 'ansible', playbook: 'playbook.yaml'
 				}
 			}
 		}
