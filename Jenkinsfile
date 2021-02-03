@@ -44,7 +44,7 @@ pipeline {
 			stage('Deploy to kubernetes'){
 				steps{
 					script{
-						sh "ansible-playbook  playbook.yaml --extra-vars \"image_id=$DOCKER_HUB_REPO:$BUILD_NUMBER\"
+						sh "ansible-playbook  playbook.yaml --extra-vars \"image_id=$DOCKER_HUB_REPO:$BUILD_NUMBER\""
 					}
 				}
 			}
