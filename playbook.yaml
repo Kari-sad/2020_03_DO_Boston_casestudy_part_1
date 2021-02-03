@@ -4,7 +4,7 @@
   tasks:
 # Pre-Tasks to validate if Minikube is running
   - name: Check Minikube's status.
-     ommand: minikube status
+      command: minikube status
       register: minikube_status
       changed_when: false
       ignore_errors: true
