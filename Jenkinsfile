@@ -4,6 +4,7 @@ pipeline {
 			DOCKER_HUB_REPO = "karinegh18/casestudy"
 			REGISTRY_CREDENTIAL = "dockerhub"
 			CONTAINER_NAME = "flaskapp"
+			image_id = registry + ":$BUILD_NUMBER"
 			
 		}
 		stages {
@@ -45,7 +46,6 @@ pipeline {
 			stage('Deploy to kubernetes'){
 				steps{
 					script{
-						def image_id = registry + ":$BUILD_NUMBER"
 						sh "ansible-playbook  playbook.yaml --extra-vars \"image_id=${image_id}\""
 					}
 				}
