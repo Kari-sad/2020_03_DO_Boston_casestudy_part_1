@@ -7,6 +7,13 @@ pipeline {
 			
 		}
 		stages {
+			stage('Clean workspace'){
+				steps{
+					script{
+						sh 'rm -rf $PWD/2020_03_DO_Boston_casestudy_part_1'						
+					}
+				}
+			}
 			stage('Cloning our Git'){
 				steps {
 					script{
