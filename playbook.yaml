@@ -1,5 +1,5 @@
 ---
-- hosts: kubernetes
+- hosts: all
   user: ansadmin
   tasks:
   - name: Deploy the service
