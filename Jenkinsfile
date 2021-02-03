@@ -44,7 +44,7 @@ pipeline {
 			stage('Deploy to kubernetes'){
 				steps{
 					script{
-						sh "ansible-playbook  playbook.yaml"
+						sh "ansible-playbook  playbook.yaml --ask-pass"
 					}
 				}
 			}
