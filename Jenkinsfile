@@ -26,6 +26,7 @@ pipeline {
 					script {
 						sh 'docker image build -t $DOCKER_HUB_REPO:latest .'
 						sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
+						echo "image buit successfuly"
 					}
 				}	
 			}
@@ -37,7 +38,7 @@ pipeline {
 							sh 'docker push $DOCKER_HUB_REPO:latest'
 						}
 						
-						echo "Image built and pushed to repository"
+						echo "Image pushed to repository"
 					}
 				}
 			}
