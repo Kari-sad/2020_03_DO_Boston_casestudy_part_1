@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flaskapp
-        image: "{{ image_id }}"
+        image: karinegh18/casestudy:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080     
