@@ -64,3 +64,11 @@
             - protocol: TCP
               port: 8080
               targetPort: 8080
+  post_tasks:
+    - name: Expose the flask app on the host via Minikube.
+      command: minikube service flaskapp-service --url=true
+      changed_when: false
+      register: minikube_service
+
+    - debug:
+        msg: "Hello Go URL: {{ minikube_service['stdout_lines'][0] }}"
