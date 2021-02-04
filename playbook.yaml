@@ -55,6 +55,7 @@
           kind: Service
           metadata:
             name: flaskapp-service
+            namespace: default
           spec:
             type: NodePort
             selector:
