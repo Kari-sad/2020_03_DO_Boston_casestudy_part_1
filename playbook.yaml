@@ -2,10 +2,10 @@
 - hosts: kubernetes
   tasks:
     - name: Copy kubernetes YAML to remote server
-        copy:
-          src: kybernetes_deploy.yaml
-          dest: /home/ansadmin/yaml/kybernetes_deploy.yaml
-          owner: ansadmin
-          mode: 7777
+      copy:
+        src: kybernetes_deploy.yaml
+        dest: /home/ansadmin/yaml/kybernetes_deploy.yaml
+        owner: ansadmin
+        mode: 7777
     - name: run deployment and publish service
       command: kubectl apply -f /home/ansadmin/yaml/kybernetes_deploy.yaml
