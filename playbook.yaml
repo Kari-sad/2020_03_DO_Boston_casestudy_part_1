@@ -38,7 +38,7 @@
                 containers:
                 - name: flaskapp
                   image: karinegh18/casestudy:latest
-                  imagePullPolicy: IfNotPresent
+                  imagePullPolicy: Always
                   ports:
                   - containerPort: 8080     
             strategy:
