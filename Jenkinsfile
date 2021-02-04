@@ -1,7 +1,9 @@
 pipeline {
 		agent any
-		environment {        
+		environment {
+            /* repository in Dockerhub */        
 			DOCKER_HUB_REPO = "karinegh18/casestudy"
+			/* this should be configured in jenkins manage credentials */
 			REGISTRY_CREDENTIAL = "dockerhub"
 			CONTAINER_NAME = "flaskapp"	
 		}
