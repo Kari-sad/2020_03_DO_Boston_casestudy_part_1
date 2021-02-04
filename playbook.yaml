@@ -1,5 +1,6 @@
 ---
 - hosts: kubernetes
+  become: yes
   tasks:
     - name: Copy kubernetes YAML to remote server
       copy:
