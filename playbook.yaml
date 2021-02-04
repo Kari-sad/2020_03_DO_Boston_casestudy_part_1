@@ -2,4 +2,4 @@
 - hosts: kubernetes
   tasks:
     - name: run deployment and publish service
-      command: kubectl apply -f kybernetes_deploy.yaml
+      command: kubectl apply -f .\kybernetes_deploy.yaml
