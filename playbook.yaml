@@ -22,6 +22,7 @@
           kind: Deployment
           metadata:
             name: flaskapp-deployment
+            namespace: default
             labels:
               app: flaskapp
           spec:
