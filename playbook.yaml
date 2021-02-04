@@ -1,9 +1,9 @@
 ---
 - hosts: kubernetes
   tasks:
-    - name: Copy kubernetes YAML
-        ansible.builtin.copy:
-          src: /2020_03_DO_Boston_casestudy_part_1/kubernetes.yml
+    - name: Copy kubernetes YAML to remote server
+        copy:
+          src: kybernetes_deploy.yaml
           dest: /home/ansadmin/yaml/kybernetes_deploy.yaml
           owner: ansadmin
           mode: 7777
