@@ -1,5 +1,11 @@
 ---
 - hosts: kubernetes
   tasks:
+    - name: Copy kubernetes YAML
+        ansible.builtin.copy:
+          src: /2020_03_DO_Boston_casestudy_part_1/kubernetes.yml
+          dest: /home/ansadmin/yaml/kybernetes_deploy.yaml
+          owner: ansadmin
+          mode: 7777
     - name: run deployment and publish service
-      command: kubectl apply -f .\kybernetes_deploy.yaml
+      command: kubectl apply -f /home/ansadmin/yaml/kybernetes_deploy.yaml
