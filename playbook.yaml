@@ -74,11 +74,5 @@
         msg: "Hello Go URL: {{ minikube_service['stdout_lines'][0] }}"
 
   tasks:
-    - name: Scale flask app deployment with k8s_scale.
-      k8s_scale:
-        api_version: v1
-        kind: Deployment
-        name: flaskapp
-        namespace: default
-        replicas: 5
-        wait: false
+    - name: Scale flask app deployment to 5 replicas.
+      shell: kubectl scale deployment/flaskapp-deployment --replicas=5
